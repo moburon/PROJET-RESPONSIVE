@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Page2 from './Page2';
+import vid from './videos/Waves.mp4'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { useNavigate  } from 'react-router-dom';
+
 
 function App() {
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/Page2`; 
+    navigate(path);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='flex1'>
+        <button className='bouton' onClick={routeChange}>C'est parti !</button>
+      </div>
+      <video className='seavid' src={vid} loop autoPlay muted controls />
+    </>
   );
 }
+
+
 
 export default App;
